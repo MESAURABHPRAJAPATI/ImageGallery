@@ -1,0 +1,127 @@
+/* Universal Selector  Fixed for all websites*/
+*{
+    margin: 0px;
+    padding: 0px;
+    /* if we add border and padding or margin so the content size must change not the size of the box*/
+    box-sizing: border-box;
+}
+
+/* Wrapper Class */
+
+#wrapper{
+    height: 100vh;
+    /* Will not be scrollabe to x-axis */
+    overflow-x: hidden;
+    /* Auto on y-axis */
+    overflow-y: auto;
+}
+
+/* Container class configuration*/
+
+.container{
+    height:100%;
+    max-width: 1200px;
+    /* LEFT AND RIGHT MARGIN IS EQUAL */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading tag position and font size */
+/* Only h1 is also fine it will work but for specpic h1 we use like this */
+
+.container h1{
+    /* margin top & bottom is 20px and right &left is 100px */
+    margin: 20px 100px;
+    text-align: center;
+    /* Margin bottom left is not given */
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+/* now make the div gallery into a flex or grid */
+
+.gallery{
+    /* Converting div to flex */
+    display: flex;
+    /* flex wrap is imp if not used all the imafes will be placed linearly or horizontally or On Main Axix */
+    flex-wrap:wrap ;
+    /* Space between Other elements */
+    justify-content: space-between;
+}
+
+/* Card Configuration */
+
+.card{
+    /* 32% so it will be placed properly */
+    width: 32%;
+    /* For overlapping text on image We have to make the position absolute*/
+    position:relative;
+    margin-bottom: 20px;
+    /* For Rounding the edges */
+    border-radius: 10px;
+    /* If any overflow hide it */
+    overflow: hidden;
+}
+
+/* Images Configuration */
+/* Directically img can be used but both are used for spicific */
+.card img{
+    /* Width will become 100% of card(parent) ie 32% */
+    width: 100%;
+    /* Not Important but if not used edge of botton side which is height will not be rounde as it of image so we will have to make it same as  card height ie 32% */
+    height: 100%;
+    /* For Black & White Image */
+    filter: grayscale(100%);
+    /* For Shadow */
+    box-shadow: 0 0 20px #333;
+    /* Not important fit to the size of  (Availabe area will be occupied)*/
+    object-fit: cover;
+}
+
+/* What will happen on hover so thats configuration */
+.card:hover{
+    /* For scalling zooming the image */
+    transform: scale(1.10);
+    /* For shadow with a particular color */
+    filter: drop-shadow(0 0 10px #d11c37);
+    /* We can use drop shadow as well but not so good box-shadow: ad some accurate data */
+    /* trnsition delay */
+    transition: 0.3s;
+}
+
+/* When we will hover onto the image it must be hd image  */
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+/* Now figcaption */
+/* Directly Figcaption can be usede but  for being specific  */
+.card figcaption{
+    /* For over lapping the image use absolute */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    /* Width & height acc to card ie parent */
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color:#fff;
+    /* transparence full 10% will not be visible */
+    opacity: 0;
+    /* Edge will be rounded */
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg,rgba(0,0,0,0.5 0%,rgba(255,255,255,0)100%));
+    transition: 0.3s;
+}
+
+/* When we will hover onto the image set opacity to 1 */
+
+.card:hover figcaption{
+    /* Image will be visible */
+    opacity: 1;
+    /* Scaling of image */
+    transform: scale(1.15);
+}
